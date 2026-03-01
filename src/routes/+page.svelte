@@ -110,13 +110,13 @@
 			class="absolute"
 			animate={hasVisited ? '' : 'duration-1000 keyframes-flip-in-x'}
 		>
-			<Profile />
+			<Profile label="About" />
 		</div>
 		<div bind:this={profileEls[1]} class="absolute">
-			<Profile showTransition={false} grayscale={false} />
+			<Profile showTransition={false} grayscale={false} label="Contact" href="#" />
 		</div>
 		<div bind:this={profileEls[2]} class="absolute">
-			<Profile showTransition={false} />
+			<Profile showTransition={false} label="Pieces" href="#" />
 		</div>
 	</div>
 
