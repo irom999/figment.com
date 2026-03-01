@@ -34,7 +34,7 @@
 		description,
 	}}
 	{title}
-	titleTemplate={title !== 'home' ? `%s | irom999.com` : 'irom999.com'}
+	titleTemplate={title !== 'home' ? `%s | figment.com` : 'figment.com'}
 	twitter={{
 		cardType: 'summary',
 		site: '@irom999',
