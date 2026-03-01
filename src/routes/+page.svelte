@@ -94,9 +94,18 @@
 	<!-- Marquee -->
 	<div class="marquee-wrapper">
 		<div class="marquee-track">
-			<span class="marquee-text">welcome to figment &nbsp;·&nbsp; figment🥚artwork &nbsp;·&nbsp; space☘️whimsical🙃 &nbsp;·&nbsp;</span>
-			<span class="marquee-text" aria-hidden="true">welcome to figment &nbsp;·&nbsp; figment🥚artwork &nbsp;·&nbsp; space☘️whimsical🙃 &nbsp;·&nbsp;</span>
-			<span class="marquee-text" aria-hidden="true">welcome to figment &nbsp;·&nbsp; figment🥚artwork &nbsp;·&nbsp; space☘️whimsical🙃 &nbsp;·&nbsp;</span>
+			<span class="marquee-text"
+				>welcome to figment &nbsp;·&nbsp; figment🥚artwork &nbsp;·&nbsp; space☘️whimsical🙃
+				&nbsp;·&nbsp;</span
+			>
+			<span class="marquee-text" aria-hidden="true"
+				>welcome to figment &nbsp;·&nbsp; figment🥚artwork &nbsp;·&nbsp; space☘️whimsical🙃
+				&nbsp;·&nbsp;</span
+			>
+			<span class="marquee-text" aria-hidden="true"
+				>welcome to figment &nbsp;·&nbsp; figment🥚artwork &nbsp;·&nbsp; space☘️whimsical🙃
+				&nbsp;·&nbsp;</span
+			>
 		</div>
 	</div>
 
@@ -276,7 +285,7 @@
 		flex-shrink: 0;
 		color: #22c55e;
 		font-size: 1.25rem;
-		font-weight: bold;
+		font-weight: 100;
 		letter-spacing: 0.05em;
 	}
 

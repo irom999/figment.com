@@ -72,9 +72,9 @@
 	}
 
 	.label-text {
-		color: white;
-		font-size: 1rem;
-		font-weight: 700;
+		color: rgba(255, 255, 255, 0.4);
+		font-size: 0.9rem;
+		font-weight: 100;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 	}
