@@ -128,21 +128,6 @@
 			<Profile showTransition={false} label="Pieces" href="#" />
 		</div>
 	</div>
-
-	<!-- Instagram Link -->
-	<div mt-6 fxc gap-2 px-4 class={hasVisited ? '' : 'github-link'}>
-		<a
-			class="btn-blue"
-			fyc
-			gap-1
-			href="https://www.instagram.com/f_om_i?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			<span class="i-ph-instagram-logo-duotone"></span>
-			Instagram
-		</a>
-	</div>
 </article>
 
 <style>
@@ -251,22 +236,7 @@
 		}
 	}
 
-	.github-link {
-		opacity: 0;
-		animation: fade-in-github 0.5s ease-in-out forwards;
-		animation-delay: 4s;
-	}
-
-	@keyframes fade-in-github {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-
-	.marquee-wrapper {
+.marquee-wrapper {
 		align-self: flex-start;
 		width: 100vw;
 		margin-left: calc(50% - 50vw);
