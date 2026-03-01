@@ -3,7 +3,7 @@
 	<div flex items-center gap-4 mb-4>
 		<img src="/my_pic.JPG" alt="profile" class="rounded-full size-16" />
 		<div>
-			<h1 font="mono bold" text="3xl">figment</h1>
+			<h1 font="mono bold" text="3xl" style="color: #22c55e;">figment</h1>
 		</div>
 	</div>
 
@@ -27,7 +27,7 @@
 					rel="noopener noreferrer"
 					target="_blank"
 				>
-					<div class="i-ph-instagram-logo-duotone" text-5xl></div>
+					<div class="i-logos:instagram-icon" text-2xl></div>
 				</a>
 			</div>
 		</div>
