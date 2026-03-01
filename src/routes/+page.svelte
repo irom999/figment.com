@@ -23,6 +23,9 @@
 		];
 		let animId: number;
 
+		// scale(1.1) expands from center → 5% overflow on each side
+		const HOVER_MARGIN = 1.1 / 2 - 0.5; // 0.05
+
 		const startBounce = () => {
 			const cW = bounceContainer.clientWidth;
 			const cH = bounceContainer.clientHeight;
@@ -30,8 +33,10 @@
 			for (let i = 0; i < bouncers.length; i++) {
 				const eW = profileEls[i].offsetWidth;
 				const eH = profileEls[i].offsetHeight;
-				bouncers[i].x = Math.max(0, Math.random() * (cW - eW));
-				bouncers[i].y = Math.max(0, Math.random() * (cH - eH));
+				const minX = eW * HOVER_MARGIN;
+				const minY = eH * HOVER_MARGIN;
+				bouncers[i].x = minX + Math.random() * (cW - eW * (1 + HOVER_MARGIN * 2));
+				bouncers[i].y = minY + Math.random() * (cH - eH * (1 + HOVER_MARGIN * 2));
 			}
 
 			const animate = () => {
@@ -43,22 +48,26 @@
 					const b = bouncers[i];
 					const eW = el.offsetWidth;
 					const eH = el.offsetHeight;
+					const minX = eW * HOVER_MARGIN;
+					const maxX = cW - eW * (1 + HOVER_MARGIN);
+					const minY = eH * HOVER_MARGIN;
+					const maxY = cH - eH * (1 + HOVER_MARGIN);
 
 					b.x += b.vx;
 					b.y += b.vy;
 
-					if (b.x <= 0) {
-						b.x = 0;
+					if (b.x <= minX) {
+						b.x = minX;
 						b.vx = Math.abs(b.vx);
-					} else if (b.x >= cW - eW) {
-						b.x = cW - eW;
+					} else if (b.x >= maxX) {
+						b.x = maxX;
 						b.vx = -Math.abs(b.vx);
 					}
-					if (b.y <= 0) {
-						b.y = 0;
+					if (b.y <= minY) {
+						b.y = minY;
 						b.vy = Math.abs(b.vy);
-					} else if (b.y >= cH - eH) {
-						b.y = cH - eH;
+					} else if (b.y >= maxY) {
+						b.y = maxY;
 						b.vy = -Math.abs(b.vy);
 					}
 
@@ -87,6 +96,7 @@
 		<div class="marquee-track">
 			<span class="marquee-text">welcome to figment &nbsp;·&nbsp; figment🥚artwork &nbsp;·&nbsp; space☘️whimsical🙃 &nbsp;·&nbsp;</span>
 			<span class="marquee-text" aria-hidden="true">welcome to figment &nbsp;·&nbsp; figment🥚artwork &nbsp;·&nbsp; space☘️whimsical🙃 &nbsp;·&nbsp;</span>
+			<span class="marquee-text" aria-hidden="true">welcome to figment &nbsp;·&nbsp; figment🥚artwork &nbsp;·&nbsp; space☘️whimsical🙃 &nbsp;·&nbsp;</span>
 		</div>
 	</div>
 
@@ -103,7 +113,7 @@
 			<Profile />
 		</div>
 		<div bind:this={profileEls[1]} class="absolute">
-			<Profile showTransition={false} />
+			<Profile showTransition={false} grayscale={false} />
 		</div>
 		<div bind:this={profileEls[2]} class="absolute">
 			<Profile showTransition={false} />
@@ -248,7 +258,9 @@
 	}
 
 	.marquee-wrapper {
-		width: 100%;
+		align-self: flex-start;
+		width: 100vw;
+		margin-left: calc(50% - 50vw);
 		overflow: hidden;
 		margin-bottom: 1rem;
 	}
@@ -279,7 +291,7 @@
 			transform: translateX(0);
 		}
 		to {
-			transform: translateX(-50%);
+			transform: translateX(-33.333%);
 		}
 	}
 </style>
