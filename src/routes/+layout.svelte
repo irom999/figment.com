@@ -26,7 +26,7 @@
 	const description = `Portfolio of @irom999`;
 </script>
 
-<DarkModeHeader themeColors={{ dark: '#0F0F0F', light: '#ffffff' }} />
+<DarkModeHeader themeColors={{ dark: '#0F0F0F', light: '#FFFFD6' }} />
 
 <MetaTags
 	{description}
@@ -56,7 +56,7 @@
 <style>
 	:global {
 		body {
-			--uno: font-sans text-base bg-white text-text-800 dark:(bg-bg-base text-text-100)
+			--uno: font-sans text-base bg-[#FFFFD6] text-text-800 dark:(bg-bg-base text-text-100)
 				motion-safe:(transition transition-duration-1s scroll-smooth);
 			text-autospace: normal;
 			overflow-wrap: anywhere;

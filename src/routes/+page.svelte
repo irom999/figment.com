@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Profile from '$components/Profile.svelte';
 	import Social from '$components/Social.svelte';
 	import { browser } from '$app/environment';
@@ -9,12 +9,99 @@
 	if (browser && !hasVisited) {
 		sessionStorage.setItem('hasVisitedHome', 'true');
 	}
+
+	let bounceContainer: HTMLDivElement;
+	let profileEls: HTMLDivElement[] = [];
+
+	onMount(() => {
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+		const bouncers = [
+			{ x: 0, y: 0, vx: 2.5, vy: 2 },
+			{ x: 0, y: 0, vx: -2, vy: 2.5 },
+			{ x: 0, y: 0, vx: 1.5, vy: -1.8 }
+		];
+		let animId: number;
+
+		const startBounce = () => {
+			const cW = bounceContainer.clientWidth;
+			const cH = bounceContainer.clientHeight;
+
+			for (let i = 0; i < bouncers.length; i++) {
+				const eW = profileEls[i].offsetWidth;
+				const eH = profileEls[i].offsetHeight;
+				bouncers[i].x = Math.max(0, Math.random() * (cW - eW));
+				bouncers[i].y = Math.max(0, Math.random() * (cH - eH));
+			}
+
+			const animate = () => {
+				const cW = bounceContainer.clientWidth;
+				const cH = bounceContainer.clientHeight;
+
+				for (let i = 0; i < bouncers.length; i++) {
+					const el = profileEls[i];
+					const b = bouncers[i];
+					const eW = el.offsetWidth;
+					const eH = el.offsetHeight;
+
+					b.x += b.vx;
+					b.y += b.vy;
+
+					if (b.x <= 0) {
+						b.x = 0;
+						b.vx = Math.abs(b.vx);
+					} else if (b.x >= cW - eW) {
+						b.x = cW - eW;
+						b.vx = -Math.abs(b.vx);
+					}
+					if (b.y <= 0) {
+						b.y = 0;
+						b.vy = Math.abs(b.vy);
+					} else if (b.y >= cH - eH) {
+						b.y = cH - eH;
+						b.vy = -Math.abs(b.vy);
+					}
+
+					el.style.transform = `translate(${b.x}px, ${b.y}px)`;
+				}
+
+				animId = requestAnimationFrame(animate);
+			};
+
+			animId = requestAnimationFrame(animate);
+		};
+
+		const delay = hasVisited ? 0 : 1200;
+		const timer = setTimeout(startBounce, delay);
+
+		return () => {
+			clearTimeout(timer);
+			cancelAnimationFrame(animId);
+		};
+	});
 </script>
 
-<article container gcc mt8 mxa>
-	<div animate={hasVisited ? '' : 'duration-1000 keyframes-flip-in-x'}>
-		<Profile />
+<article container mt8 mxa fcol items-center>
+	<div
+		bind:this={bounceContainer}
+		class="relative w-full overflow-hidden"
+		style="height: 45vh; min-height: 220px;"
+	>
+		<div
+			bind:this={profileEls[0]}
+			class="absolute"
+			animate={hasVisited ? '' : 'duration-1000 keyframes-flip-in-x'}
+		>
+			<Profile />
+		</div>
+		<div bind:this={profileEls[1]} class="absolute">
+			<Profile showTransition={false} />
+		</div>
+		<div bind:this={profileEls[2]} class="absolute">
+			<Profile showTransition={false} />
+		</div>
 	</div>
+
 	<div mt8 max-w-2xl mxa px-4>
 		<p
 			font="mono bold"
