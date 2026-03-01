@@ -14,7 +14,7 @@
 
 <a {href} class={['profile-anchor', grayscale ? 'starts-gray' : 'starts-color']}>
 	<img
-		class="profile-img mx-auto aspect-square w-1/3 rounded-full object-cover md:size-52 cursor-pointer"
+		class="profile-img aspect-square size-20 md:size-52 rounded-full object-cover cursor-pointer"
 		style:view-transition-name={showTransition ? 'profile' : undefined}
 		alt="profile"
 		fetchpriority="high"

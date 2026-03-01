@@ -112,7 +112,7 @@
 	<div
 		bind:this={bounceContainer}
 		class="relative w-full overflow-hidden"
-		style="height: 50vh; min-height: 260px;"
+		style="height: 50vh; min-height: 200px;"
 	>
 		<div
 			bind:this={profileEls[0]}
