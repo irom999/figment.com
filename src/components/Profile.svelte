@@ -3,7 +3,7 @@
 		showTransition = true,
 		grayscale = true,
 		label = '',
-		href = '/bio',
+		href = '/about',
 	}: {
 		showTransition?: boolean;
 		grayscale?: boolean;
