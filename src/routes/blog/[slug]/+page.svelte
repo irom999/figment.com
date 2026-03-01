@@ -22,10 +22,10 @@
 	</div>
 
 	<article
-		class={['prose dark:prose-invert', !dev && 'slide-enter-content']}
+		class={['prose', !dev && 'slide-enter-content']}
 		mxa
 		pb-8
-		text-text="700 dark:200"
+		text-text="700"
 	>
 		{@html data.post.html}
 	</article>

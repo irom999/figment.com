@@ -10,7 +10,7 @@
 
 <h1
 	style:view-transition-name={viewTransitionName}
-	class={{ 'op-35 dark:op-20': opacity, 'select-none': selectDisabled }}
+	class={{ 'op-35': opacity, 'select-none': selectDisabled }}
 	font="mono bold"
 	line-height-none
 	my-8

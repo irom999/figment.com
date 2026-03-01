@@ -4,14 +4,14 @@
 		<img src="/my_pic.JPG" alt="profile" class="rounded-full size-16" grayscale />
 		<div>
 			<h1 font="mono bold" text="3xl">irom999</h1>
-			<span animate-pulse font-medium text="center xl text-700 dark:text-200">
+			<span animate-pulse font-medium text="center xl text-700">
 				Software Engineer
 			</span>
 		</div>
 	</div>
 
 	<!-- Bio content -->
-	<div prose="~ dark:invert" mxa mt-8>
+	<div prose="~" mxa mt-8>
 		<h2 text="2xl" font-bold mb-4>Bio</h2>
 		<p text-lg mb-1>Born in 1999. Software Engineer in Tokyo.</p>
 

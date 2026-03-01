@@ -19,7 +19,7 @@
 		const bouncers = [
 			{ x: 0, y: 0, vx: 2.5, vy: 2 },
 			{ x: 0, y: 0, vx: -2, vy: 2.5 },
-			{ x: 0, y: 0, vx: 1.5, vy: -1.8 }
+			{ x: 0, y: 0, vx: 1.5, vy: -1.8 },
 		];
 		let animId: number;
 
@@ -82,6 +82,14 @@
 </script>
 
 <article container mt8 mxa fcol items-center>
+	<!-- Marquee -->
+	<div class="marquee-wrapper">
+		<div class="marquee-track">
+			<span class="marquee-text">welcome to figment &nbsp;·&nbsp; figment🥚artwork &nbsp;·&nbsp; space☘️whimsical🙃 &nbsp;·&nbsp;</span>
+			<span class="marquee-text" aria-hidden="true">welcome to figment &nbsp;·&nbsp; figment🥚artwork &nbsp;·&nbsp; space☘️whimsical🙃 &nbsp;·&nbsp;</span>
+		</div>
+	</div>
+
 	<div
 		bind:this={bounceContainer}
 		class="relative w-full overflow-hidden"
@@ -102,44 +110,18 @@
 		</div>
 	</div>
 
-	<div mt8 max-w-2xl mxa px-4>
-		<p
-			font="mono bold"
-			text="2xl center gray-600 dark:gray-300"
-			leading-tight
-			class={hasVisited ? '' : 'word-animation'}
-		>
-			<span class={hasVisited ? '' : 'word'}>Hi!</span>
-			<span class={hasVisited ? '' : 'word'}>I'm</span>
-			<span class={hasVisited ? '' : 'word'} style:view-transition-name="title-irom999"
-				>irom999.</span
-			>
-			<br />
-			<span class={hasVisited ? '' : 'word'}>Click</span>
-			<a
-				href="/blog"
-				class={hasVisited ? '' : 'word'}
-				style={hasVisited ? 'color: #fb923c; text-decoration: underline;' : ''}>here</a
-			>
-			<span class={hasVisited ? '' : 'word'}>to</span>
-			<span class={hasVisited ? '' : 'word'}>check</span>
-			<span class={hasVisited ? '' : 'word'}>my</span>
-			<span class={hasVisited ? '' : 'word'}>blogs.</span>
-		</p>
-	</div>
-
-	<!-- GitHub Link -->
+	<!-- Instagram Link -->
 	<div mt-6 fxc gap-2 px-4 class={hasVisited ? '' : 'github-link'}>
 		<a
 			class="btn-blue"
 			fyc
 			gap-1
-			href="https://github.com/irom999"
+			href="https://www.instagram.com/f_om_i?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			<span class="i-ph-github-logo-duotone"></span>
-			GitHub
+			<span class="i-ph-instagram-logo-duotone"></span>
+			Instagram
 		</a>
 	</div>
 </article>
@@ -262,6 +244,42 @@
 		}
 		to {
 			opacity: 1;
+		}
+	}
+
+	.marquee-wrapper {
+		width: 100%;
+		overflow: hidden;
+		margin-bottom: 1rem;
+	}
+
+	.marquee-track {
+		display: flex;
+		width: max-content;
+		animation: marquee 15s linear infinite;
+	}
+
+	.marquee-text {
+		white-space: nowrap;
+		flex-shrink: 0;
+		color: #22c55e;
+		font-size: 1.25rem;
+		font-weight: bold;
+		letter-spacing: 0.05em;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.marquee-track {
+			animation: none;
+		}
+	}
+
+	@keyframes marquee {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
 		}
 	}
 </style>

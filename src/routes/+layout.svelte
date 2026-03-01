@@ -2,7 +2,6 @@
 	import { onNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import Nav from '$components/Nav.svelte';
-	import { Header as DarkModeHeader } from 'svelte-fancy-darkmode';
 	import { MetaTags } from 'svelte-meta-tags';
 	import 'uno.css';
 	import '@unocss/reset/tailwind.css';
@@ -26,8 +25,6 @@
 	const description = `Portfolio of @irom999`;
 </script>
 
-<DarkModeHeader themeColors={{ dark: '#0F0F0F', light: '#FFFFD6' }} />
-
 <MetaTags
 	{description}
 	openGraph={{
@@ -46,7 +43,7 @@
 	}}
 />
 
-<main max-w-4xl mxa my3 px-8 un-dark>
+<main max-w-4xl mxa my3 px-8>
 	<Nav />
 	{#key page.url}
 		{@render children()}
@@ -56,7 +53,7 @@
 <style>
 	:global {
 		body {
-			--uno: font-sans text-base bg-[#FFFFD6] text-text-800 dark:(bg-bg-base text-text-100)
+			--uno: font-sans text-base bg-[#FFFFD6] text-text-800
 				motion-safe:(transition transition-duration-1s scroll-smooth);
 			text-autospace: normal;
 			overflow-wrap: anywhere;
