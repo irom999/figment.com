@@ -286,6 +286,7 @@
 		color: #22c55e;
 		font-size: 1.25rem;
 		font-weight: 100;
+		font-family: Arial, sans-serif;
 		letter-spacing: 0.05em;
 	}
 
